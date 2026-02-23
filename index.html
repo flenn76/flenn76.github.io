@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flenn.de</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23ff6b9d;stop-opacity:1' /><stop offset='100%' style='stop-color:%23c06c84;stop-opacity:1' /></linearGradient></defs><rect width='100' height='100' fill='url(%23grad)' rx='20'/><text x='50' y='70' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-5'>F</text></svg>">
     <style>
         * {
             margin: 0;
@@ -11,7 +14,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
         }
@@ -45,6 +49,7 @@
                 transform: scale(1);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1.05);
                 opacity: 1;
@@ -57,7 +62,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
             pointer-events: none;
         }
 
@@ -67,7 +72,7 @@
             left: 40px;
             z-index: 10;
             color: white;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .content h1 {
@@ -99,6 +104,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="hero">
         <img src="images/pic0001.jpg" alt="Featured Image" loading="eager">
@@ -109,4 +115,5 @@
         </div>
     </div>
 </body>
+
 </html>
