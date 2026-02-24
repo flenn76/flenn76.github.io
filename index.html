@@ -37,22 +37,99 @@
         }
 
         .hero img {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 40%;
-            animation: zoomIn 3.0s ease-in-out forwards;
+            animation: carousel 15s infinite ease-in-out;
         }
 
-        @keyframes zoomIn {
-            from {
+        .hero img:nth-child(1) {
+            animation-name: slideShow1;
+        }
+
+        .hero img:nth-child(2) {
+            animation-name: slideShow2;
+        }
+
+        .hero img:nth-child(3) {
+            animation-name: slideShow3;
+        }
+
+        @keyframes slideShow1 {
+            0% {
+                opacity: 1;
                 transform: scale(1);
-                opacity: 0;
             }
 
-            to {
-                transform: scale(1.05);
+            33.33% {
                 opacity: 1;
+                transform: scale(1.05);
+            }
+
+            33.35% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideShow2 {
+            0% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            33.33% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            33.35% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            66.66% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            66.68% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideShow3 {
+            0% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            66.66% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            66.68% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.05);
             }
         }
 
@@ -64,6 +141,7 @@
             height: 100%;
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
             pointer-events: none;
+            z-index: 5;
         }
 
         .content {
@@ -88,6 +166,18 @@
             font-weight: 300;
         }
 
+        .copyright {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
         @media (max-width: 768px) {
             .content {
                 bottom: 30px;
@@ -101,17 +191,27 @@
             .content p {
                 font-size: 0.9rem;
             }
+
+            .copyright {
+                bottom: 30px;
+                font-size: 0.75rem;
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="hero">
-        <img src="images/pic0001.jpg" alt="Featured Image" loading="eager">
+        <img src="images/pic0001.jpg" alt="Featured Image 1" loading="eager">
+        <img src="images/pic0002.jpg" alt="Featured Image 2" loading="eager">
+        <img src="images/pic0003.jpg" alt="Featured Image 3" loading="eager">
         <div class="overlay"></div>
         <div class="content">
             <h1>flenn.de</h1>
             <p>Imagery</p>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Frank Lennartz.
         </div>
     </div>
 </body>
