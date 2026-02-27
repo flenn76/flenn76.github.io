@@ -42,7 +42,7 @@
             height: 100%;
             object-fit: cover;
             object-position: center 40%;
-            animation: carousel 15s infinite ease-in-out;
+            animation: carousel 20s infinite ease-in-out;
         }
 
         .hero img:nth-child(1) {
@@ -57,18 +57,22 @@
             animation-name: slideShow3;
         }
 
+        .hero img:nth-child(4) {
+            animation-name: slideShow4;
+        }
+
         @keyframes slideShow1 {
             0% {
                 opacity: 1;
                 transform: scale(1);
             }
 
-            33.33% {
+            25% {
                 opacity: 1;
                 transform: scale(1.05);
             }
 
-            33.35% {
+            25.1% {
                 opacity: 0;
                 transform: scale(1.05);
             }
@@ -85,22 +89,22 @@
                 transform: scale(1.05);
             }
 
-            33.33% {
+            25% {
                 opacity: 0;
                 transform: scale(1.05);
             }
 
-            33.35% {
+            25.1% {
                 opacity: 1;
                 transform: scale(1);
             }
 
-            66.66% {
+            50% {
                 opacity: 1;
                 transform: scale(1.05);
             }
 
-            66.68% {
+            50.1% {
                 opacity: 0;
                 transform: scale(1.05);
             }
@@ -117,12 +121,44 @@
                 transform: scale(1.05);
             }
 
-            66.66% {
+            50% {
                 opacity: 0;
                 transform: scale(1.05);
             }
 
-            66.68% {
+            50.1% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            75% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            75.1% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes slideShow4 {
+            0% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            75% {
+                opacity: 0;
+                transform: scale(1.05);
+            }
+
+            75.1% {
                 opacity: 1;
                 transform: scale(1);
             }
@@ -250,6 +286,7 @@
         <img src="images/pic0001.jpg" alt="Featured Image 1" loading="eager">
         <img src="images/pic0002.jpg" alt="Featured Image 2" loading="eager">
         <img src="images/pic0003.jpg" alt="Featured Image 3" loading="eager">
+        <img src="images/pic0004.jpg" alt="Featured Image 4" loading="eager">
         <div class="overlay"></div>
         <div class="content">
             <h1><a href="https://instagram.com/flenn.de" target="_blank" rel="noopener noreferrer">flenn.de</a></h1>
