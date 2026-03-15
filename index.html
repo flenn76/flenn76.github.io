@@ -224,32 +224,101 @@
             opacity: 0.8;
         }
 
-        .email-icon {
+        .impressum-btn {
             position: absolute;
             bottom: 40px;
             right: 40px;
             z-index: 10;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
             color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.6;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
         }
 
-        .email-icon:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: scale(1.1);
+        .impressum-btn:hover {
+            opacity: 1;
         }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-overlay:target {
+            display: block;
+        }
+
+        .modal-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 380px;
+            max-width: 100%;
+            height: 100%;
+            background: #111;
+            padding: 40px 35px;
+            overflow-y: auto;
+            color: white;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to   { transform: translateX(0); }
+        }
+
+        .modal-panel h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .modal-panel h3 {
+            font-size: 0.75rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+            margin: 20px 0 6px;
+        }
+
+        .modal-panel p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .modal-panel a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.85;
+        }
+
+        .modal-panel a:hover { opacity: 0.6; }
+
+        .modal-close {
+            position: absolute;
+            top: 35px;
+            right: 35px;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover { opacity: 1; }
 
         @media (max-width: 768px) {
             .content {
@@ -270,12 +339,9 @@
                 font-size: 0.75rem;
             }
 
-            .email-icon {
+            .impressum-btn {
                 bottom: 30px;
                 right: 30px;
-                width: 45px;
-                height: 45px;
-                font-size: 1.2rem;
             }
         }
     </style>
@@ -295,7 +361,28 @@
         <div class="copyright">
             &copy; 2026 Frank Lennartz
         </div>
-        <a href="mailto:flenn@web.de" class="email-icon" title="Email">✉</a>
+        <a href="#impressum" class="impressum-btn">Impressum</a>
+    </div>
+
+    <div id="impressum" class="modal-overlay">
+        <div class="modal-panel">
+            <a href="#" class="modal-close" title="Schließen">×</a>
+            <h2>IMPRESSUM</h2>
+
+            <h3>Angaben gemäß § 5 TMG</h3>
+            <p>Frank Lennartz<br>
+            Birkenweg 12<br>
+            52152 Simmerath</p>
+
+            <h3>Kontakt</h3>
+            <p><a href="mailto:flenn@web.de">flenn@web.de</a></p>
+
+            <div style="margin: 50px 0;"></div>
+
+            <h2>Datenschutz</h2>
+
+            <p>Beim Seitenaufruf erfasst der Hosting-Anbieter automatisch Verbindungsdaten inkl. IP-Adresse (Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO). Diese Seite verlinkt auf externe Websites (u.a. Instagram/Meta). Auf deren Datenverarbeitung habe ich keinen Einfluss.</p>
+        </div>
     </div>
 </body>
 
