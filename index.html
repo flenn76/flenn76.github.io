@@ -224,11 +224,18 @@
             opacity: 0.8;
         }
 
-        .impressum-btn {
+        .footer-actions {
             position: absolute;
             bottom: 40px;
             right: 40px;
             z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
+
+        .impressum-btn {
             color: white;
             text-decoration: none;
             font-size: 0.75rem;
@@ -241,6 +248,12 @@
 
         .impressum-btn:hover {
             opacity: 1;
+        }
+
+        .sep {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
 
         .modal-overlay {
@@ -294,9 +307,18 @@
         }
 
         .modal-panel p {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             line-height: 1.6;
-            opacity: 0.85;
+            opacity: 0.9;
+            margin: 0 0 14px 0;
+        }
+
+        .modal-meta {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin: 12px 0 0 0;
+            font-style: italic;
+            text-align: right;
         }
 
         .modal-panel a {
@@ -339,7 +361,7 @@
                 font-size: 0.75rem;
             }
 
-            .impressum-btn {
+            .footer-actions {
                 bottom: 30px;
                 right: 30px;
             }
@@ -361,7 +383,10 @@
         <div class="copyright">
             &copy; 2026 Frank Lennartz
         </div>
-        <a href="#impressum" class="impressum-btn">Impressum</a>
+        <div class="footer-actions">
+            <a href="#impressum" class="impressum-btn">Impressum</a>
+            <a href="#datenschutz" class="impressum-btn">Datenschutz</a>
+        </div>
     </div>
 
     <div id="impressum" class="modal-overlay">
@@ -377,11 +402,22 @@
             <h3>Kontakt</h3>
             <p><a href="mailto:flenn@web.de">flenn@web.de</a></p>
 
-            <div style="margin: 50px 0;"></div>
+            <div style="margin: 30px 0;"></div>
+        </div>
+    </div>
 
+    <div id="datenschutz" class="modal-overlay">
+        <div class="modal-panel">
+            <a href="#" class="modal-close" title="Schließen">×</a>
             <h2>Datenschutz</h2>
 
-            <p>Beim Seitenaufruf erfasst der Hosting-Anbieter automatisch Verbindungsdaten inkl. IP-Adresse (Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO). Diese Seite verlinkt auf externe Websites (u.a. Instagram/Meta). Auf deren Datenverarbeitung habe ich keinen Einfluss.</p>
+            <p>Beim Aufruf dieser Website werden automatisch Verbindungsdaten (z. B. IP-Adresse) durch den Hosting-Anbieter erfasst und in Server-Logfiles gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+            <p>Die Seite enthält Links zu externen Websites (z. B. Instagram). Für die dortige Datenverarbeitung bin ich nicht verantwortlich.</p>
+
+            <p>Ich speichere selbst keine personenbezogenen Daten.</p>
+
+            <p class="modal-meta">Letzte Aktualisierung: 15.03.2026</p>
         </div>
     </div>
 </body>
