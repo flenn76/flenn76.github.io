@@ -367,6 +367,93 @@
                 gap: 12px;
             }
         }
+
+        /* Slide indicators */
+        .slide-indicators {
+            position: absolute;
+            bottom: 85px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: all 0.4s ease;
+        }
+
+        .slide-dot:nth-child(1) {
+            animation: indicatorCycle1 20s infinite;
+        }
+
+        .slide-dot:nth-child(2) {
+            animation: indicatorCycle2 20s infinite;
+        }
+
+        .slide-dot:nth-child(3) {
+            animation: indicatorCycle3 20s infinite;
+        }
+
+        .slide-dot:nth-child(4) {
+            animation: indicatorCycle4 20s infinite;
+        }
+
+        @keyframes indicatorCycle1 {
+            0%, 25% {
+                background: rgba(109, 123, 103, 0.9);
+                box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+            }
+            25.1%, 100% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+        }
+
+        @keyframes indicatorCycle2 {
+            0%, 25% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+            25.1%, 50% {
+                background: rgba(109, 123, 103, 0.9);
+                box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+            }
+            50.1%, 100% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+        }
+
+        @keyframes indicatorCycle3 {
+            0%, 50% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+            50.1%, 75% {
+                background: rgba(109, 123, 103, 0.9);
+                box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+            }
+            75.1%, 100% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+        }
+
+        @keyframes indicatorCycle4 {
+            0%, 75% {
+                background: rgba(255, 255, 255, 0.4);
+                box-shadow: none;
+            }
+            75.1%, 100% {
+                background: rgba(109, 123, 103, 0.9);
+                box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+            }
+        }
     </style>
 </head>
 
@@ -383,6 +470,12 @@
         </div>
         <div class="copyright">
             &copy; 2026 Frank Lennartz
+        </div>
+        <div class="slide-indicators">
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
+            <div class="slide-dot"></div>
         </div>
         <div class="footer-actions">
             <a href="#impressum" class="impressum-btn">Impressum</a>
