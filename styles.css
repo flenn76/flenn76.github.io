@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.6s ease-in-out, transform 5s ease-in-out;
+}
+
+.hero img.slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.hero-content h1 a {
+    color: white;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.hero-content h1 a:hover {
+    opacity: 0.8;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.modal-controls {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.modal-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.modal-link:hover {
+    opacity: 1;
+}
+
+.sep {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    backdrop-filter: blur(2px);
+}
+
+.modal-overlay:target {
+    display: block;
+}
+
+.modal-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 380px;
+    max-width: 100%;
+    height: 100%;
+    background: #111;
+    padding: 40px 35px;
+    overflow-y: auto;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to   { transform: translateX(0); }
+}
+
+.modal-panel h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.modal-panel h3 {
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin: 20px 0 6px;
+}
+
+.modal-panel p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0 0 14px 0;
+}
+
+.modal-meta {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin: 12px 0 0 0;
+    font-style: italic;
+    text-align: right;
+}
+
+.modal-panel a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.modal-panel a:hover { opacity: 0.6; }
+
+.modal-close {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.modal-close:hover { opacity: 1; }
+
+@media (max-width: 768px) {
+    .hero-content {
+        bottom: 30px;
+        left: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .copyright {
+        bottom: 30px;
+        font-size: 0.75rem;
+    }
+
+    .modal-controls {
+        bottom: 50px;
+        right: 30px;
+        gap: 12px;
+    }
+}
+
+/* Slide indicators */
+.slideshow-controls {
+    position: absolute;
+    bottom: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slide-nav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.slide-nav-dot.dot-active {
+    background: rgba(109, 123, 103, 0.9);
+    box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+}
