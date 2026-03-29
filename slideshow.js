@@ -10,6 +10,8 @@ const SlideshowManager = {
     dots: null,
     currentSlide: 0,
     interval: null,
+    touchStartX: 0,
+    touchEndX: 0,
 
     init() {
         this.slides = document.querySelectorAll('.hero img');
@@ -43,6 +45,10 @@ const SlideshowManager = {
                 e.preventDefault();
             }
         });
+        
+        // Touch swipe support for mobile
+        document.addEventListener('touchstart', (e) => this.handleTouchStart(e), false);
+        document.addEventListener('touchend', (e) => this.handleTouchEnd(e), false);
     },
 
     setSlide(index) {
@@ -72,6 +78,10 @@ const SlideshowManager = {
         this.setSlide(this.currentSlide + 1);
     },
 
+    prevSlide() {
+        this.setSlide(this.currentSlide - 1);
+    },
+
     startAutoPlay() {
         this.interval = setInterval(
             () => this.nextSlide(),
@@ -91,6 +101,32 @@ const SlideshowManager = {
     handleDotClick(index) {
         this.setSlide(index);
         this.resetAutoPlay();
+    },
+
+    handleTouchStart(event) {
+        this.touchStartX = event.changedTouches[0].screenX;
+        this.stopAutoPlay();
+    },
+
+    handleTouchEnd(event) {
+        this.touchEndX = event.changedTouches[0].screenX;
+        this.handleSwipe();
+    },
+
+    handleSwipe() {
+        const swipeThreshold = 50; // Minimum swipe distance
+        const diff = this.touchStartX - this.touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // Swiped left - show next slide
+                this.nextSlide();
+            } else {
+                // Swiped right - show previous slide
+                this.prevSlide();
+            }
+            this.resetAutoPlay();
+        }
     },
 
     handleEscKey(event) {
