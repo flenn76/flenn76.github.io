@@ -54,6 +54,18 @@ const SlideshowManager = {
         this.currentSlide = index % SLIDESHOW_CONFIG.TOTAL_SLIDES;
         this.slides[this.currentSlide].classList.add('slide-active');
         this.dots[this.currentSlide].classList.add('dot-active');
+        
+        // Update location
+        this.updateLocation();
+    },
+
+    updateLocation() {
+        const currentImg = this.slides[this.currentSlide];
+        const locationDisplay = document.querySelector('.image-location');
+        
+        const location = currentImg.getAttribute('data-location');
+        
+        locationDisplay.innerHTML = `<div><span class="location-label">Location</span><br>${location}</div>`;
     },
 
     nextSlide() {
