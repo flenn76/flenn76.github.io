@@ -11,11 +11,12 @@ const SlideshowManager = {
         this.slides = document.querySelectorAll('.hero img');
         this.dots = document.querySelectorAll('.slide-nav-dot');
         
-        // Set first slide as active
-        this.setSlide(0);
-        
-        // Start auto-play
-        this.startAutoPlay();
+        // Set first slide as active with delay to trigger transition
+        requestAnimationFrame(() => {
+            this.setSlide(0);
+            // Start auto-play after first slide is set
+            this.startAutoPlay();
+        });
         
         // Add click listeners to dots
         this.dots.forEach((dot, index) => {
