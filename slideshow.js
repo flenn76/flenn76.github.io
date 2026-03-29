@@ -1,29 +1,33 @@
+// Configuration
+const SLIDESHOW_CONFIG = {
+    TOTAL_SLIDES: 4,
+    SLIDE_DURATION: 5000, // 5 seconds
+};
+
 // Slideshow Manager
 const SlideshowManager = {
     slides: null,
     dots: null,
     currentSlide: 0,
-    totalSlides: 4,
-    slideDuration: 5000, // 5 seconds
     interval: null,
 
     init() {
         this.slides = document.querySelectorAll('.hero img');
         this.dots = document.querySelectorAll('.slide-nav-dot');
+        this.setupEventListeners();
         
         // Set first slide as active with delay to trigger transition
         requestAnimationFrame(() => {
             this.setSlide(0);
-            // Start auto-play after first slide is set
             this.startAutoPlay();
         });
-        
-        // Add click listeners to dots
+    },
+
+    setupEventListeners() {
         this.dots.forEach((dot, index) => {
             dot.addEventListener('click', () => this.handleDotClick(index));
         });
         
-        // Add ESC key listener for modals
         document.addEventListener('keydown', (e) => this.handleEscKey(e));
     },
 
@@ -32,8 +36,8 @@ const SlideshowManager = {
         this.slides.forEach(slide => slide.classList.remove('slide-active'));
         this.dots.forEach(dot => dot.classList.remove('dot-active'));
         
-        // Add active class to current slide and dot
-        this.currentSlide = index % this.totalSlides;
+        // Set and activate current slide
+        this.currentSlide = index % SLIDESHOW_CONFIG.TOTAL_SLIDES;
         this.slides[this.currentSlide].classList.add('slide-active');
         this.dots[this.currentSlide].classList.add('dot-active');
     },
@@ -43,11 +47,18 @@ const SlideshowManager = {
     },
 
     startAutoPlay() {
-        this.interval = setInterval(() => this.nextSlide(), this.slideDuration);
+        this.interval = setInterval(
+            () => this.nextSlide(),
+            SLIDESHOW_CONFIG.SLIDE_DURATION
+        );
+    },
+
+    stopAutoPlay() {
+        clearInterval(this.interval);
     },
 
     resetAutoPlay() {
-        clearInterval(this.interval);
+        this.stopAutoPlay();
         this.startAutoPlay();
     },
 
@@ -58,10 +69,9 @@ const SlideshowManager = {
 
     handleEscKey(event) {
         if (event.key === 'Escape') {
-            // Close modals by clearing the hash (deactivates :target state)
             window.location.hash = '';
         }
-    }
+    },
 };
 
 // Initialize slideshow when DOM is ready
