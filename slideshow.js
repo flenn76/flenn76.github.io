@@ -29,6 +29,20 @@ const SlideshowManager = {
         });
         
         document.addEventListener('keydown', (e) => this.handleEscKey(e));
+        
+        // Protect images from being downloaded
+        // 1. Disable context menu (right-click)
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        
+        // 2. Disable drag and drop
+        document.addEventListener('dragstart', (e) => e.preventDefault());
+        
+        // 3. Block save keyboard shortcuts (Ctrl+S, Cmd+S)
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 's') {
+                e.preventDefault();
+            }
+        });
     },
 
     setSlide(index) {

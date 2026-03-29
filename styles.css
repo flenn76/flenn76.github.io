@@ -36,6 +36,8 @@ body {
     transform: scale(1);
     transition: opacity 0.6s ease-in-out, transform 5s ease-in-out;
     z-index: 1;
+    user-select: none;
+    pointer-events: none;
 }
 
 .hero img.slide-active {
