@@ -56,8 +56,8 @@ const SlideshowManager = {
         this.slides.forEach(slide => slide.classList.remove('slide-active'));
         this.dots.forEach(dot => dot.classList.remove('dot-active'));
         
-        // Set and activate current slide
-        this.currentSlide = index % SLIDESHOW_CONFIG.TOTAL_SLIDES;
+        // Set and activate current slide (handle negative indices correctly)
+        this.currentSlide = ((index % SLIDESHOW_CONFIG.TOTAL_SLIDES) + SLIDESHOW_CONFIG.TOTAL_SLIDES) % SLIDESHOW_CONFIG.TOTAL_SLIDES;
         this.slides[this.currentSlide].classList.add('slide-active');
         this.dots[this.currentSlide].classList.add('dot-active');
         
