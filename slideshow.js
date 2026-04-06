@@ -71,7 +71,25 @@ const SlideshowManager = {
         
         const location = currentImg.getAttribute('data-location');
         
-        locationDisplay.innerHTML = `<div><span class="location-label">Location</span><br>${location}</div>`;
+        // Clear previous content
+        locationDisplay.textContent = '';
+        
+        // Safely create DOM elements
+        const div = document.createElement('div');
+        
+        const label = document.createElement('span');
+        label.className = 'location-label';
+        label.textContent = 'Location';
+        
+        div.appendChild(label);
+        
+        const br = document.createElement('br');
+        div.appendChild(br);
+        
+        const locationText = document.createTextNode(location);
+        div.appendChild(locationText);
+        
+        locationDisplay.appendChild(div);
     },
 
     nextSlide() {
