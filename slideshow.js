@@ -38,35 +38,24 @@ const SlideshowManager = {
     },
 
     setSlide(index) {
-        // Remove active class from all slides and dots
         this.slides.forEach(slide => slide.classList.remove('slide-active'));
         this.dots.forEach(dot => dot.classList.remove('dot-active'));
         
-        // Set and activate current slide (handle negative indices correctly)
         this.currentSlide = ((index % SLIDESHOW_CONFIG.TOTAL_SLIDES) + SLIDESHOW_CONFIG.TOTAL_SLIDES) % SLIDESHOW_CONFIG.TOTAL_SLIDES;
         this.slides[this.currentSlide].classList.add('slide-active');
         this.dots[this.currentSlide].classList.add('dot-active');
-        
-        // Update location
         this.updateLocation();
     },
 
     updateLocation() {
-        const currentImg = this.slides[this.currentSlide];
+        const location = this.slides[this.currentSlide].getAttribute('data-location');
         const locationDisplay = document.querySelector('.image-location');
+        locationDisplay.innerHTML = '';
         
-        const location = currentImg.getAttribute('data-location');
-        
-        // Clear previous content
-        locationDisplay.textContent = '';
-        
-        // Safely create DOM elements
         const div = document.createElement('div');
-        
         const label = document.createElement('span');
         label.className = 'location-label';
         label.textContent = 'Location';
-        
         div.appendChild(label);
         
         const br = document.createElement('br');
@@ -118,17 +107,9 @@ const SlideshowManager = {
     },
 
     handleSwipe() {
-        const swipeThreshold = 50; // Minimum swipe distance
         const diff = this.touchStartX - this.touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                // Swiped left - show next slide
-                this.nextSlide();
-            } else {
-                // Swiped right - show previous slide
-                this.prevSlide();
-            }
+        if (Math.abs(diff) > 50) {
+            diff > 0 ? this.nextSlide() : this.prevSlide();
             this.resetAutoPlay();
         }
     },

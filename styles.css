@@ -1,3 +1,11 @@
+:root {
+    --color-dark: #000;
+    --color-light: #fff;
+    --color-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    --color-accent: rgba(109, 123, 103, 0.9);
+    --color-accent-glow: rgba(109, 123, 103, 0.8);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +20,7 @@ body {
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background-color: #000;
+    background-color: var(--color-dark);
     overflow: hidden;
 }
 
@@ -62,8 +70,8 @@ body {
     bottom: 40px;
     left: 40px;
     z-index: 10;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: var(--color-light);
+    text-shadow: var(--color-text-shadow);
 }
 
 .hero-content h1 {
@@ -74,7 +82,7 @@ body {
 }
 
 .hero-content h1 a {
-    color: white;
+    color: var(--color-light);
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
@@ -95,8 +103,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: var(--color-light);
+    text-shadow: var(--color-text-shadow);
     font-size: 0.85rem;
     opacity: 0.8;
 }
@@ -113,13 +121,13 @@ body {
 }
 
 .modal-link {
-    color: white;
+    color: var(--color-light);
     text-decoration: none;
     font-size: 0.75rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     opacity: 0.6;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: var(--color-text-shadow);
     transition: opacity 0.3s ease;
 }
 
@@ -132,8 +140,8 @@ body {
     top: 40px;
     right: 40px;
     z-index: 10;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: var(--color-light);
+    text-shadow: var(--color-text-shadow);
     font-size: 0.75rem;
     font-family: 'Courier New', monospace;
     letter-spacing: 0.5px;
@@ -181,7 +189,7 @@ body {
     background: #111;
     padding: 40px 35px;
     overflow-y: auto;
-    color: white;
+    color: var(--color-light);
     animation: slideIn 0.3s ease-out;
 }
 
@@ -196,7 +204,7 @@ body {
     letter-spacing: 2px;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .modal-panel h3 {
@@ -224,7 +232,7 @@ body {
 }
 
 .modal-panel a {
-    color: white;
+    color: var(--color-light);
     text-decoration: none;
     opacity: 0.85;
     transition: opacity 0.3s ease;
@@ -239,13 +247,15 @@ body {
     top: 35px;
     right: 35px;
     font-size: 1.5rem;
-    color: white;
+    color: var(--color-light);
     text-decoration: none;
     opacity: 0.5;
     transition: opacity 0.3s;
 }
 
-.modal-close:hover { opacity: 1; }
+.modal-close:hover {
+    opacity: 1;
+}
 
 /* Language toggle */
 .modal-language-toggle {
@@ -259,7 +269,7 @@ body {
 }
 
 .lang-switcher {
-    color: white;
+    color: var(--color-light);
     text-decoration: none;
     opacity: 0.5;
     cursor: pointer;
@@ -267,12 +277,12 @@ body {
     text-transform: uppercase;
 }
 
-.lang-switcher:hover {
-    opacity: 0.8;
+.lang-switcher:hover,
+.lang-switcher.active {
+    opacity: 1;
 }
 
 .lang-switcher.active {
-    opacity: 1;
     text-decoration: underline;
 }
 
@@ -332,8 +342,8 @@ body {
 }
 
 .slide-nav-dot.dot-active {
-    background: rgba(109, 123, 103, 0.9);
-    box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
+    background: var(--color-accent);
+    box-shadow: 0 0 12px var(--color-accent-glow);
 }
 
 .modal-spacing {

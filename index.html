@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; img-src 'self'; style-src 'self'; connect-src 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=()">
     <title>flenn.de</title>
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%236d7b67' rx='20'/><text x='50' y='70' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle' letter-spacing='-5'>F</text></svg>">
@@ -13,7 +15,7 @@
 
 <body>
     <div class="hero">
-        <img src="images/pic0001.jpg" alt="Featured Image 1" loading="eager" data-location="New York, USA">
+        <img src="images/pic0001.jpg" alt="Featured Image 1" loading="eager" fetchpriority="high" data-location="New York, USA">
         <img src="images/pic0002.jpg" alt="Featured Image 2" loading="eager" data-location="Simmerath, Germany">
         <img src="images/pic0003.jpg" alt="Featured Image 3" loading="eager" data-location="Simmerath, Germany">
         <img src="images/pic0004.jpg" alt="Featured Image 4" loading="eager" data-location="Simmerath, Germany">
@@ -24,7 +26,7 @@
             <p>Imagery</p>
         </div>
         <div class="copyright">
-            &copy; 2026 Frank Lennartz
+            &copy; <span id="year">2026</span> Frank Lennartz
         </div>
         <div class="slideshow-controls">
             <div class="slide-nav-dot"></div>
