@@ -297,3 +297,7 @@ body {
     background: rgba(109, 123, 103, 0.9);
     box-shadow: 0 0 12px rgba(109, 123, 103, 0.8);
 }
+
+.modal-spacing {
+    margin: 30px 0;
+}
