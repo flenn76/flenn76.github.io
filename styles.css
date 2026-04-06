@@ -247,6 +247,44 @@ body {
 
 .modal-close:hover { opacity: 1; }
 
+/* Language toggle */
+.modal-language-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 2px;
+    margin-bottom: 20px;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+}
+
+.lang-switcher {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.lang-switcher:hover {
+    opacity: 0.8;
+}
+
+.lang-switcher.active {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.lang-separator {
+    opacity: 0.3;
+}
+
+/* Hidden content */
+.modal-content.hidden {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .hero-content {
         bottom: 30px;
