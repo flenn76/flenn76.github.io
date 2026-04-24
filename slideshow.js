@@ -1,6 +1,6 @@
 // Configuration
 const SLIDESHOW_CONFIG = {
-    TOTAL_SLIDES: 5,
+    TOTAL_SLIDES: 6,
     SLIDE_DURATION: 5000, // 5 seconds
 };
 
